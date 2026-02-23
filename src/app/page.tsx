@@ -19,14 +19,14 @@ export default function Home() {
             studio
           </h1>
 
-          <p className="text-lg sm:text-xl text-text-secondary font-light leading-relaxed mb-16">
+          <p className="text-lg sm:text-xl text-text-secondary font-light leading-relaxed mb-20">
             we build custom web applications and mobile apps
             <br className="hidden sm:block" />
             {' '}with modern technology stacks.
           </p>
 
           {/* Services */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-14 text-left mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-14 text-left mb-20">
             <div>
               <h2 className="text-xs tracking-[0.3em] uppercase text-accent-warm mb-3">
                 Web Applications
@@ -50,7 +50,7 @@ export default function Home() {
 
           <button
             onClick={() => setContactOpen(true)}
-            className="px-8 py-3 border border-text-muted/30 text-text-secondary text-sm tracking-widest hover:border-accent-warm hover:text-text-primary transition-all duration-300 cursor-pointer"
+            className="text-text-secondary text-sm tracking-widest hover:text-text-primary transition-colors duration-300 cursor-pointer"
           >
             get in touch
           </button>
