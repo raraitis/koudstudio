@@ -63,12 +63,12 @@ export default function Home() {
           <span className="text-xs text-text-muted/40 tracking-widest">
             koud.studio
           </span>
+
           <span className="text-xs text-text-muted/30">
             Latvia &middot; Worldwide
           </span>
         </div>
-
-
+      </footer>
       <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
     </>
   );
