@@ -25,13 +25,13 @@ export default function SandBackground() {
         gyroControls: false,
         minHeight: 200,
         minWidth: 200,
-        highlightColor: 0xD4C4A8,
-        midtoneColor: 0xB8A68A,
-        lowlightColor: 0x8C7A62,
-        baseColor: 0x2A2520,
-        blurFactor: 0.5,
-        speed: 0.4,
-        zoom: 0.8,
+        highlightColor: 0xE8DCC8,
+        midtoneColor: 0xD4C4A8,
+        lowlightColor: 0xC4B08E,
+        baseColor: 0xB8A68A,
+        blurFactor: 0.8,
+        speed: 0.1,
+        zoom: 1.2,
       });
     });
 
