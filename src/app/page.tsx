@@ -11,8 +11,8 @@ export default function Home() {
     <>
       <SandBackground />
 
-      <div className="relative z-10 min-h-dvh flex flex-col items-center justify-center px-4 sm:px-6 py-16 sm:py-0">
-        <div className="max-w-2xl w-full text-center">
+      <div className="relative z-10 min-h-dvh flex flex-col items-center px-4 sm:px-6 py-8 sm:py-16">
+        <div className="max-w-2xl w-full text-center flex-1 flex flex-col justify-center">
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-light tracking-tight text-text-primary mb-4 sm:mb-6">
             koud
             <span className="text-accent-warm">.</span>
@@ -57,16 +57,17 @@ export default function Home() {
         </div>
 
         {/* Footer */}
-        <footer className="w-full mt-auto pt-8 px-4 sm:px-6 pb-6">
-          <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-            <span className="text-xs text-text-muted/40 tracking-widest">
-              koud.studio
-            </span>
-            <span className="text-xs text-text-muted/30">
-              Latvia &middot; Worldwide
-            </span>
-          </div>
-        </footer>
+      </div>
+      <footer className="w-full pt-8 px-4 sm:px-6 pb-6">
+        <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+          <span className="text-xs text-text-muted/40 tracking-widest">
+            koud.studio
+          </span>
+          <span className="text-xs text-text-muted/30">
+            Latvia &middot; Worldwide
+          </span>
+        </div>
+      </footer>
       </div>
 
       <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
