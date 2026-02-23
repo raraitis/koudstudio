@@ -32,9 +32,8 @@ export default function Home() {
                 Web Applications
               </h2>
               <p className="text-text-muted text-sm leading-relaxed">
-                Full-stack web platforms built with Next.js, React, and
-                Node.js. From interactive maps and dashboards to management
-                systems and marketplaces.
+                Full-stack web platforms — from interactive maps and
+                dashboards to management systems and marketplaces.
               </p>
             </div>
             <div>
@@ -42,9 +41,9 @@ export default function Home() {
                 Mobile Apps
               </h2>
               <p className="text-text-muted text-sm leading-relaxed">
-                Cross-platform iOS and Android applications using React
-                Native. Native performance with a shared codebase, from
-                concept to App Store.
+                Cross-platform iOS and Android applications. Native
+                performance with a shared codebase, from concept to
+                App Store.
               </p>
             </div>
           </div>
