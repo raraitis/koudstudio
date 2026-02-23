@@ -1,5 +1,3 @@
-'use client';
-
 import SandBackground from '@/components/SandBackground';
 
 export default function Home() {
@@ -35,7 +33,7 @@ export default function Home() {
         </main>
 
         {/* Services */}
-        <section className="px-6 pb-24">
+        <section className="px-6 pb-24" aria-label="Services">
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 sm:gap-16">
               <div>
