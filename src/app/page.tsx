@@ -11,22 +11,22 @@ export default function Home() {
     <>
       <SandBackground />
 
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6">
-        <div className="max-w-2xl text-center">
-          <h1 className="text-5xl sm:text-7xl font-light tracking-tight text-text-primary mb-6">
+      <div className="relative z-10 min-h-dvh flex flex-col items-center justify-center px-4 sm:px-6 py-16 sm:py-0">
+        <div className="max-w-2xl w-full text-center">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-light tracking-tight text-text-primary mb-4 sm:mb-6">
             koud
             <span className="text-accent-warm">.</span>
             studio
           </h1>
 
-          <p className="text-lg sm:text-xl text-text-secondary font-light leading-relaxed mb-20">
+          <p className="text-base sm:text-lg md:text-xl text-text-secondary font-light leading-relaxed mb-12 sm:mb-20">
             we build custom web applications and mobile apps
             <br className="hidden sm:block" />
             {' '}with modern technology stacks.
           </p>
 
           {/* Services */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-14 text-left mb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-14 text-left mb-12 sm:mb-20">
             <div>
               <h2 className="text-xs tracking-[0.3em] uppercase text-accent-warm mb-3">
                 Web Applications
@@ -57,7 +57,7 @@ export default function Home() {
         </div>
 
         {/* Footer */}
-        <footer className="absolute bottom-0 left-0 right-0 px-6 py-6">
+        <footer className="w-full mt-auto pt-8 px-4 sm:px-6 pb-6">
           <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
             <span className="text-xs text-text-muted/40 tracking-widest">
               koud.studio
