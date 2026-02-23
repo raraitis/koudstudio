@@ -56,19 +56,19 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
 
       <div
-        className="relative w-full max-w-md bg-[#2A2520] border border-accent/20 p-8"
+        className="relative w-full max-w-md bg-[#2A2520] border border-accent/20 p-10 sm:p-12"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-surface/40 hover:text-surface transition-colors text-lg"
+          className="absolute top-6 right-6 text-surface/40 hover:text-surface transition-colors text-lg"
           aria-label="Close"
         >
           &times;
         </button>
 
-        <h2 className="text-xs tracking-[0.3em] uppercase text-accent mb-6">
-          Get in touch
+        <h2 className="text-xs tracking-[0.3em] uppercase text-accent mb-8">
+          get in touch
         </h2>
 
         {status === 'sent' ? (
@@ -77,7 +77,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
             <p className="text-surface/40 text-xs">We&apos;ll get back to you soon.</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div>
               <label htmlFor="name" className="block text-xs text-surface/40 mb-1">
                 Name

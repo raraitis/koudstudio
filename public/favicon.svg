@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- "k." letterform - minimal, geometric -->
+  <!-- Vertical stem of k -->
+  <rect x="5" y="4" width="4.5" height="24" rx="1" fill="#5C4A32"/>
+  <!-- Upper diagonal arm of k -->
+  <polygon points="9.5,16.5 21,5 26,5 12,17.5" fill="#5C4A32"/>
+  <!-- Lower diagonal leg of k -->
+  <polygon points="11,16 26,28 21,28 9.5,17.5" fill="#5C4A32"/>
+  <!-- Dot -->
+  <circle cx="28" cy="26" r="2.5" fill="#5C4A32"/>
+</svg>

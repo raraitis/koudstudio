@@ -25,6 +25,14 @@ export const metadata: Metadata = {
   authors: [{ name: 'koud.studio' }],
   creator: 'koud.studio',
   metadataBase: new URL('https://koud.studio'),
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.svg', type: 'image/svg+xml', sizes: '180x180' },
+    ],
+  },
   alternates: {
     canonical: '/',
   },

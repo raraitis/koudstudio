@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <!-- Solid sand background with rounded corners for iOS -->
+  <rect width="180" height="180" rx="36" fill="#C4B08E"/>
+  <!-- "k." letterform - centered, geometric -->
+  <!-- Vertical stem of k -->
+  <rect x="42" y="36" width="16" height="108" rx="4" fill="#1A1510"/>
+  <!-- Upper diagonal arm of k -->
+  <polygon points="58,91 108,40 128,40 68,96" fill="#1A1510"/>
+  <!-- Lower diagonal leg of k -->
+  <polygon points="64,88 128,144 108,144 58,93" fill="#1A1510"/>
+  <!-- Dot -->
+  <circle cx="140" cy="134" r="10" fill="#1A1510"/>
+</svg>
