@@ -1,0 +1,57 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-surface: #F5F1E8;
+  --color-surface-subtle: #EDE7DA;
+
+  --color-text-primary: #1A1714;
+  --color-text-secondary: #4A4239;
+  --color-text-muted: #7A6F62;
+
+  --color-accent: #B8A68A;
+  --color-accent-hover: #D4C4A8;
+  --color-accent-warm: #C4956A;
+
+  --color-border: #D4C4A8;
+
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  --grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-surface);
+  background: #1A1714;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(184, 166, 138, 0.3);
+  color: #F5F1E8;
+}
+
+.grain::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.12;
+  background-image: var(--grain);
+  background-repeat: repeat;
+  mix-blend-mode: overlay;
+}
