@@ -13,20 +13,20 @@ export default function Home() {
 
       <div className="relative z-10 min-h-dvh flex flex-col items-center px-4 sm:px-6 py-8 sm:py-16">
         <div className="max-w-2xl w-full text-center flex-1 flex flex-col justify-center">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-light tracking-tight text-text-primary mb-4 sm:mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-light tracking-tight text-text-primary mb-6 sm:mb-10">
             koud
             <span className="text-accent-warm">.</span>
             studio
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-text-secondary font-light leading-relaxed mb-12 sm:mb-20">
+          <p className="text-base sm:text-lg md:text-xl text-text-secondary font-light leading-relaxed mb-16 sm:mb-28">
             we build custom web applications and mobile apps
             <br className="hidden sm:block" />
             {' '}with modern technology stacks.
           </p>
 
           {/* Services */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-14 text-left mb-12 sm:mb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-14 text-left mb-16 sm:mb-28">
             <div>
               <h2 className="text-xs tracking-[0.3em] uppercase text-accent-warm mb-3">
                 Web Applications
