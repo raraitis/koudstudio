@@ -67,8 +67,7 @@ export default function Home() {
             Latvia &middot; Worldwide
           </span>
         </div>
-      </footer>
-      </div>
+
 
       <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
     </>
