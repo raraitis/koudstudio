@@ -1,13 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
-  <!-- Solid sand background with rounded corners for iOS -->
-  <rect width="180" height="180" rx="36" fill="#C4B08E"/>
-  <!-- "k." letterform - centered, geometric -->
-  <!-- Vertical stem of k -->
-  <rect x="42" y="36" width="16" height="108" rx="4" fill="#1A1510"/>
-  <!-- Upper diagonal arm of k -->
-  <polygon points="58,91 108,40 128,40 68,96" fill="#1A1510"/>
-  <!-- Lower diagonal leg of k -->
-  <polygon points="64,88 128,144 108,144 58,93" fill="#1A1510"/>
+  <!-- Background with subtle gradient feel -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D0BC9A"/>
+      <stop offset="100%" stop-color="#B8A480"/>
+    </linearGradient>
+  </defs>
+  <rect width="180" height="180" rx="40" fill="url(#bg)"/>
+  <!-- "k." letterform - refined -->
+  <!-- Vertical stem -->
+  <rect x="44" y="38" width="14" height="104" rx="7" fill="#1A1510"/>
+  <!-- Upper diagonal arm -->
+  <path d="M58,90 L104,42 Q107,39 110,42 L112,44 Q115,47 112,50 L65,95" fill="#1A1510"/>
+  <!-- Lower diagonal leg -->
+  <path d="M63,92 L110,138 Q113,141 116,138 L116,138 Q119,135 116,132 L60,88" fill="#1A1510"/>
   <!-- Dot -->
-  <circle cx="140" cy="134" r="10" fill="#1A1510"/>
+  <circle cx="136" cy="132" r="11" fill="#1A1510"/>
+  <circle cx="134" cy="130" r="4" fill="#2E2620" opacity="0.3"/>
 </svg>
