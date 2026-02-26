@@ -50,127 +50,110 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center px-0 sm:px-6"
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center"
       onClick={onClose}
     >
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-md" />
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
 
       <div
-        className="relative w-full max-w-lg max-h-[90dvh] overflow-y-auto bg-[#1E1B18] rounded-t-3xl sm:rounded-2xl shadow-2xl"
+        className="relative w-full sm:max-w-md max-h-[90dvh] overflow-y-auto bg-white rounded-t-2xl sm:rounded-2xl shadow-xl mx-0 sm:mx-6"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header accent line */}
-        <div className="h-px w-full bg-linear-to-r from-transparent via-accent/40 to-transparent" />
-
-        <div className="p-8 sm:p-10 md:p-12">
-          <div className="flex items-start justify-between mb-10">
+        <div className="px-6 pt-6 pb-8 sm:px-8 sm:pt-8 sm:pb-10">
+          {/* Header */}
+          <div className="flex items-start justify-between mb-8">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-light text-surface tracking-tight mb-2">
+              <h2 className="text-xl sm:text-2xl font-medium text-neutral-900 tracking-tight mb-1">
                 Get in touch
               </h2>
-              <p className="text-xs text-surface/30 tracking-wide">
-                Tell us about your project and we&apos;ll get back to you shortly.
+              <p className="text-sm text-neutral-500">
+                Tell us about your project.
               </p>
             </div>
             <button
               onClick={onClose}
-              className="text-surface/30 hover:text-surface/70 transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-surface/5 -mt-1 -mr-1"
+              className="cursor-pointer text-neutral-400 hover:text-neutral-600 transition-colors p-1 -mt-1 -mr-1"
               aria-label="Close"
             >
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M5 5L15 15M15 5L5 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
               </svg>
             </button>
           </div>
 
           {status === 'sent' ? (
-            <div className="py-12 text-center">
-              <div className="w-12 h-12 rounded-full border border-accent/30 flex items-center justify-center mx-auto mb-5">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M4 10L8 14L16 6" stroke="#B8A68A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <div className="py-10 text-center">
+              <div className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center mx-auto mb-4">
+                <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10L8 14L16 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <p className="text-surface/80 text-base mb-2">Message sent successfully.</p>
-              <p className="text-surface/30 text-sm">We&apos;ll get back to you soon.</p>
+              <p className="text-neutral-900 text-base font-medium mb-1">Message sent</p>
+              <p className="text-neutral-500 text-sm">We&apos;ll get back to you soon.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-[11px] tracking-[0.15em] uppercase text-surface/40 mb-2">
-                    Name
-                  </label>
-                  <input
-                    id="name"
-                    type="text"
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="w-full bg-surface/4 border-0 border-b border-surface/10 px-4 py-3 text-sm text-surface/90 placeholder-surface/15 focus:border-accent/50 focus:bg-surface/6 focus:outline-none transition-all duration-200 rounded-t-lg"
-                    placeholder="Your name"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-[11px] tracking-[0.15em] uppercase text-surface/40 mb-2">
-                    Email
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-surface/4 border-0 border-b border-surface/10 px-4 py-3 text-sm text-surface/90 placeholder-surface/15 focus:border-accent/50 focus:bg-surface/6 focus:outline-none transition-all duration-200 rounded-t-lg"
-                    placeholder="your@email.com"
-                  />
-                </div>
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-1.5">
+                  Name
+                </label>
+                <input
+                  id="name"
+                  type="text"
+                  required
+                  maxLength={200}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-base text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900 transition-colors"
+                  placeholder="Your name"
+                />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-[11px] tracking-[0.15em] uppercase text-surface/40 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-1.5">
+                  Email
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  required
+                  maxLength={200}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-base text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900 transition-colors"
+                  placeholder="you@company.com"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-neutral-700 mb-1.5">
                   Message
                 </label>
                 <textarea
                   id="message"
                   required
-                  rows={5}
+                  rows={4}
+                  maxLength={5000}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full bg-surface/4 border-0 border-b border-surface/10 px-4 py-3 text-sm text-surface/90 placeholder-surface/15 focus:border-accent/50 focus:bg-surface/6 focus:outline-none transition-all duration-200 resize-none rounded-t-lg"
-                  placeholder="Tell us about your project — goals, timeline, budget..."
+                  className="w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-base text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900 transition-colors resize-none"
+                  placeholder="Tell us about your project..."
                 />
               </div>
 
               {status === 'error' && (
-                <div className="flex items-center gap-3 bg-red-500/10 border border-red-400/20 rounded-lg px-4 py-3">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="shrink-0">
-                    <circle cx="8" cy="8" r="7" stroke="#F87171" strokeWidth="1" />
-                    <path d="M8 4.5V9" stroke="#F87171" strokeWidth="1.5" strokeLinecap="round" />
-                    <circle cx="8" cy="11.5" r="0.75" fill="#F87171" />
-                  </svg>
-                  <p className="text-red-300/80 text-xs">
-                    Something went wrong. Try again or email us at{' '}
-                    <a href="mailto:info@koudstudio.com" className="underline hover:text-red-200">info@koudstudio.com</a>
-                  </p>
-                </div>
+                <p className="text-sm text-red-600">
+                  Something went wrong. Try again or email{' '}
+                  <a href="mailto:info@koudstudio.com" className="underline cursor-pointer">info@koudstudio.com</a>.
+                </p>
               )}
 
               <button
                 type="submit"
                 disabled={status === 'sending'}
-                className="w-full py-3.5 bg-accent/15 text-surface/80 text-xs tracking-[0.2em] uppercase hover:bg-accent/25 hover:text-surface transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed rounded-lg border border-accent/10 hover:border-accent/30"
+                className="cursor-pointer w-full rounded-lg bg-neutral-900 px-6 py-3 text-sm font-medium text-white hover:bg-neutral-800 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               >
-                {status === 'sending' ? (
-                  <span className="inline-flex items-center gap-2">
-                    <svg className="animate-spin h-3.5 w-3.5" viewBox="0 0 24 24" fill="none">
-                      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" strokeDasharray="60" strokeDashoffset="15" strokeLinecap="round" />
-                    </svg>
-                    Sending...
-                  </span>
-                ) : (
-                  'Send message'
-                )}
+                {status === 'sending' ? 'Sending...' : 'Send message'}
               </button>
             </form>
           )}
