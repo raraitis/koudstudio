@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { Resend } from 'resend';
+import nodemailer from 'nodemailer';
 
 export const dynamic = 'force-dynamic';
 
@@ -11,21 +11,19 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Missing fields' }, { status: 400 });
     }
 
-    if (typeof name !== 'string' || name.length > 200) {
-      return NextResponse.json({ error: 'Invalid name' }, { status: 400 });
-    }
-    if (typeof email !== 'string' || email.length > 200 || !email.includes('@')) {
-      return NextResponse.json({ error: 'Invalid email' }, { status: 400 });
-    }
-    if (typeof message !== 'string' || message.length > 5000) {
-      return NextResponse.json({ error: 'Invalid message' }, { status: 400 });
-    }
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT),
+      secure: false,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    });
 
-    const resend = new Resend(process.env.RESEND_API_KEY);
-
-    await resend.emails.send({
-      from: 'koud.studio <noreply@koudstudio.com>',
-      to: 'info@koudstudio.com',
+    await transporter.sendMail({
+      from: process.env.SMTP_FROM,
+      to: process.env.SMTP_USER,
       replyTo: email,
       subject: `Contact from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\n\n${message}`,

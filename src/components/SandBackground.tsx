@@ -29,9 +29,9 @@ export default function SandBackground() {
         midtoneColor: 0xD4C4A8,
         lowlightColor: 0xC4B08E,
         baseColor: 0xB8A68A,
-        blurFactor: 0.8,
-        speed: 0.1,
-        zoom: 1.2,
+        blurFactor: 0.6,
+        speed: 0.3,
+        zoom: 1.0,
       });
     });
 
