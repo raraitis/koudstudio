@@ -25,7 +25,14 @@ export default function ContactForm({ open, onClose }: { open: boolean; onClose:
 
   const handleClose = () => {
     setVisible(false);
-    setTimeout(onClose, 200);
+    setTimeout(() => {
+      onClose();
+      setStatus('idle');
+      setName('');
+      setEmail('');
+      setMessage('');
+      setError('');
+    }, 200);
   };
 
   const handleSubmit = async () => {
@@ -57,59 +64,70 @@ export default function ContactForm({ open, onClose }: { open: boolean; onClose:
   };
 
   const fieldClass =
-    'w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-accent/20 rounded-xl text-sm text-text-primary placeholder:text-text-muted/40 focus:outline-none focus:ring-2 focus:ring-accent-warm/30 focus:border-accent-warm/40 bg-surface shadow-[inset_0_1px_2px_rgba(0,0,0,0.04)] transition-all duration-200';
+    'w-full px-4 py-3 border border-border bg-cream/50 text-sm text-text-primary placeholder:text-text-muted/40 focus:outline-none focus:border-accent transition-colors duration-200 tracking-wide';
 
   return (
     <div
-      className={`fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center p-4 z-50 transition-opacity duration-200 ${visible ? 'opacity-100' : 'opacity-0'}`}
+      className={`fixed inset-0 bg-black/20 backdrop-blur-sm flex items-center justify-center p-4 z-50 transition-opacity duration-200 ${visible ? 'opacity-100' : 'opacity-0'}`}
       onClick={handleClose}
     >
       <div
-        className={`bg-surface max-w-md w-full rounded-2xl sm:rounded-3xl shadow-2xl border border-accent/15 max-h-[90dvh] overflow-y-auto transition-all duration-200 ${visible ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}
+        className={`bg-surface max-w-md w-full border-2 border-border shadow-lg transition-all duration-200 ${visible ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}
         onClick={e => e.stopPropagation()}
       >
 
         {/* Header */}
-        <div className="flex items-center justify-between px-5 sm:px-7 pt-5 sm:pt-7 pb-4 sm:pb-5 border-b border-accent/10">
-          <div className="flex items-center gap-3.5">
-            <div className="w-10 h-10 rounded-xl bg-accent-warm/10 flex items-center justify-center">
-              <Mail className="w-5 h-5 text-accent-warm" />
+        <div className="flex items-center justify-between px-6 sm:px-8 pt-6 sm:pt-8 pb-5 border-b border-border">
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-10 border border-border flex items-center justify-center">
+              <Mail className="w-4 h-4 text-accent" />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-text-primary tracking-tight">Get in touch</h3>
-              <p className="text-xs text-text-muted/50 tracking-wide">koud.studio</p>
+              <h3 className="text-sm font-medium text-text-primary uppercase tracking-[0.2em]">Get in touch</h3>
+              <p className="text-[10px] text-text-muted/60 uppercase tracking-[0.3em] mt-0.5">koud.studio</p>
             </div>
           </div>
           <button
             onClick={handleClose}
-            className="w-8 h-8 rounded-lg flex items-center justify-center text-text-muted/40 hover:text-text-primary hover:bg-accent/10 focus:outline-none focus:ring-2 focus:ring-accent-warm/30 transition-all duration-150 cursor-pointer"
+            className="w-8 h-8 border border-border/50 flex items-center justify-center text-text-muted/40 hover:text-text-primary hover:border-border focus:outline-none transition-all duration-150 cursor-pointer"
           >
-            <X className="w-4 h-4" />
+            <X className="w-3.5 h-3.5" />
           </button>
         </div>
 
         {/* Success */}
         {status === 'sent' && (
-          <div className="mx-5 sm:mx-7 mt-5 sm:mt-6 bg-green-500/8 border border-green-500/15 rounded-xl p-4 flex items-start gap-3">
-            <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 shrink-0" />
-            <div>
-              <p className="text-green-700 text-sm font-medium">Message sent!</p>
-              <p className="text-green-600/70 text-xs mt-0.5">We&apos;ll get back to you shortly.</p>
+          <div className="px-6 sm:px-8 py-10 sm:py-14 text-center">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <span className="block w-8 h-px bg-accent/40" />
+              <CheckCircle className="w-6 h-6 text-accent" />
+              <span className="block w-8 h-px bg-accent/40" />
+            </div>
+            <p className="text-sm font-medium text-text-primary uppercase tracking-[0.2em] mb-2">Message sent</p>
+            <p className="text-xs text-text-muted/70 tracking-wide">We&apos;ll get back to you shortly.</p>
+            <div className="mt-8">
+              <button
+                type="button"
+                onClick={handleClose}
+                className="text-xs tracking-[0.25em] uppercase text-text-muted/70 border border-border hover:border-accent hover:text-accent px-6 py-2.5 transition-all duration-200 cursor-pointer"
+              >
+                Close
+              </button>
             </div>
           </div>
         )}
 
         {/* Error */}
-        {error && (
-          <div className="mx-5 sm:mx-7 mt-5 sm:mt-6 bg-red-500/8 border border-red-500/15 rounded-xl p-4">
-            <p className="text-red-600 text-sm">{error}</p>
+        {error && status !== 'sent' && (
+          <div className="mx-6 sm:mx-8 mt-5 border border-accent/30 p-4">
+            <p className="text-accent text-xs tracking-wide">{error}</p>
           </div>
         )}
 
         {status !== 'sent' && (
-          <div className="px-5 sm:px-7 pt-5 sm:pt-6 pb-5 sm:pb-7 space-y-4 sm:space-y-5">
+          <div className="px-6 sm:px-8 pt-6 pb-6 sm:pb-8 space-y-5">
             <div>
-              <label className="block text-xs font-medium text-text-muted/70 uppercase tracking-wider mb-2">Name</label>
+              <label className="block text-[10px] font-medium text-text-muted/70 uppercase tracking-[0.3em] mb-2">Name</label>
               <input
                 type="text"
                 placeholder="Your name"
@@ -120,7 +138,7 @@ export default function ContactForm({ open, onClose }: { open: boolean; onClose:
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-text-muted/70 uppercase tracking-wider mb-2">Email</label>
+              <label className="block text-[10px] font-medium text-text-muted/70 uppercase tracking-[0.3em] mb-2">Email</label>
               <input
                 type="email"
                 placeholder="your@email.com"
@@ -131,7 +149,7 @@ export default function ContactForm({ open, onClose }: { open: boolean; onClose:
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-text-muted/70 uppercase tracking-wider mb-2">Message</label>
+              <label className="block text-[10px] font-medium text-text-muted/70 uppercase tracking-[0.3em] mb-2">Message</label>
               <textarea
                 rows={4}
                 placeholder="Tell us about your project..."
@@ -145,7 +163,7 @@ export default function ContactForm({ open, onClose }: { open: boolean; onClose:
               <button
                 type="button"
                 onClick={handleClose}
-                className="px-5 py-2.5 border border-accent/20 text-text-muted rounded-xl hover:bg-accent/8 hover:text-text-secondary transition-all duration-150 text-sm cursor-pointer"
+                className="px-5 py-2.5 border border-border text-text-muted text-xs uppercase tracking-[0.2em] hover:border-text-muted hover:text-text-primary transition-all duration-200 cursor-pointer"
               >
                 Cancel
               </button>
@@ -153,14 +171,14 @@ export default function ContactForm({ open, onClose }: { open: boolean; onClose:
                 type="button"
                 onClick={handleSubmit}
                 disabled={loading}
-                className="flex-1 px-5 py-2.5 bg-accent-warm text-surface rounded-xl hover:bg-accent-warm/90 transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed text-sm font-medium cursor-pointer flex items-center justify-center gap-2"
+                className="flex-1 px-5 py-2.5 bg-accent-warm text-surface text-xs uppercase tracking-[0.2em] hover:bg-accent transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2"
               >
                 {loading ? (
                   'Sending\u2026'
                 ) : (
                   <>
                     Send message
-                    <Send className="w-3.5 h-3.5" />
+                    <Send className="w-3 h-3" />
                   </>
                 )}
               </button>

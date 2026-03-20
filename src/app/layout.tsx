@@ -1,13 +1,20 @@
 import type { Metadata, Viewport } from 'next';
+import { Jost } from 'next/font/google';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import './globals.css';
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-7YBC9YN1V1';
+const jost = Jost({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-jost',
+});
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-EPEVWKVHLH';
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#C4B08E',
+  themeColor: '#E8D8C4',
 };
 
 export const metadata: Metadata = {
@@ -96,7 +103,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="grain">{children}</body>
+      <body className={`${jost.variable} grain`}>{children}</body>
       {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
     </html>
   );

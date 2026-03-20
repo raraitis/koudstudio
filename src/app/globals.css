@@ -1,27 +1,32 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-surface: #F5F1E8;
-  --color-surface-subtle: #EDE7DA;
+  --color-surface: #FAF6F0;
+  --color-surface-subtle: #F0E8DA;
 
-  --color-text-primary: #1A1510;
-  --color-text-secondary: #2E2620;
-  --color-text-muted: #4A3F34;
+  --color-text-primary: #514741;
+  --color-text-secondary: #6B5D53;
+  --color-text-muted: #8A7B6F;
 
-  --color-accent: #B8A68A;
-  --color-accent-hover: #D4C4A8;
-  --color-accent-warm: #5C4A32;
+  --color-accent: #C6645F;
+  --color-accent-hover: #D4838F;
+  --color-accent-warm: #8B4049;
 
-  --color-border: #D4C4A8;
+  --color-gold: #C9A84C;
+  --color-sage: #8BAF9F;
+  --color-blush: #FFBDD8;
+  --color-cream: #F5EDE0;
 
-  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
+  --color-border: #C4B5A0;
+  --color-border-light: #DDD0C1;
+
+  --font-body: 'Jost', 'Futura', 'Century Gothic', system-ui, sans-serif;
+  --font-heading: 'Jost', 'Futura', 'Century Gothic', system-ui, sans-serif;
 }
 
 :root {
   --grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
-
 
 html {
   scroll-behavior: smooth;
@@ -30,15 +35,15 @@ html {
 body {
   font-family: var(--font-body);
   color: var(--color-text-primary);
-  background: #C4B08E;
+  background: #E8D8C4;
   overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 ::selection {
-  background: rgba(154, 123, 84, 0.3);
-  color: #2A2520;
+  background: rgba(198, 100, 95, 0.25);
+  color: #3A2A24;
 }
 
 .grain::after {
@@ -47,7 +52,7 @@ body {
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  opacity: 0.10;
+  opacity: 0.08;
   background-image: var(--grain);
   background-repeat: repeat;
   mix-blend-mode: multiply;
