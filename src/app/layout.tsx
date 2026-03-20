@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from 'next';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import './globals.css';
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-7YBC9YN1V1';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -94,6 +97,7 @@ export default function RootLayout({
         />
       </head>
       <body className="grain">{children}</body>
+      {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
     </html>
   );
 }
